@@ -6,15 +6,19 @@ import pandas as pd
 import numpy as np
 import datetime
 
-from passenger_counter import clean_up, stops_routes, te5b_stops
+from passenger_counter import clean_up, stops_routes, te5b_stops, dates
 import logging
 from send_email import send_email_with_attachment
+
+from sqlalchemy import create_engine
 
 from dotenv import load_dotenv
 
 load_dotenv()
 
-PATH = '/home/tns/Dropbox/Family Room/2023 Stats'
+PATH="/home/tns/Dropbox/Family Room/2023 Stats"
+
+engine = create_engine(os.getenv('DATABASE_URI'))
 
 
 def formatter():
